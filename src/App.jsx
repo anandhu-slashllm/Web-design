@@ -31,6 +31,7 @@ import {
 import './App.css';
 import DesignHub from './components/DesignHub';
 import DesignTwo from './components/DesignTwo';
+import DesignThree from './components/DesignThree';
 
 // Animated Counter Component for Stats Section
 function Counter({ value, suffix = "" }) {
@@ -213,6 +214,10 @@ function App() {
 
   if (activeDesign === 'design2') {
     return <DesignTwo onSelect={setActiveDesign} />;
+  }
+
+  if (activeDesign === 'design3') {
+    return <DesignThree onSelect={setActiveDesign} />;
   }
 
   return (

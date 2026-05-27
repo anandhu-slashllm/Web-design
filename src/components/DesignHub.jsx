@@ -31,13 +31,13 @@ function DesignHub({ onSelect }) {
     {
       id: 'design3',
       title: 'Design 3: Playful Soft Coral',
-      badge: 'COMING SOON',
-      badgeColor: 'rgba(255, 111, 89, 0.12)',
+      badge: 'ACTIVE & TESTABLE',
+      badgeColor: 'rgba(255, 111, 89, 0.15)',
       badgeTextColor: '#ff6f59',
       description: 'A warm, approachable, family-first aesthetic with soft peach, coral, and forest green accents. Features highly rounded shapes (32px+ radius), bouncy physics animations, organic blob layers, and friendly typography. Ideal for compassionate, personal eldercare branding.',
-      fonts: ['Fredoka', 'Quicksand'],
+      fonts: ['Cabinet Grotesk', 'Fraunces'],
       colors: ['#ff6f59', '#ffb03a', '#fffaf4'],
-      isActive: false,
+      isActive: true,
       features: ['Super-rounded UI Containers', 'Peach & Warm Cream Palette', 'Bouncy Animation Physics', 'Friendly Rounded Elements']
     }
   ];
@@ -172,7 +172,7 @@ function DesignHub({ onSelect }) {
                     onClick={() => onSelect(proposal.id)}
                     className="btn-hub-primary"
                   >
-                    <span>Launch {proposal.id === 'design1' ? 'Design 1' : 'Design 2'}</span>
+                    <span>Launch {proposal.id === 'design1' ? 'Design 1' : proposal.id === 'design2' ? 'Design 2' : 'Design 3'}</span>
                     <ExternalLink size={16} />
                   </motion.button>
                 ) : (
