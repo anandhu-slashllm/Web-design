@@ -1,0 +1,1438 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+.design-twoleaves-sage {
+  --bg-primary:       #f7f5f0;   /* warm off-white, like Two Leaves cream */
+  --bg-secondary:     #ffffff;   /* pure white for cards */
+  --bg-dark:          #1e3a2f;   /* deep forest green for dark sections */
+  --bg-sage:          #eaf2ec;   /* soft sage for alternating bands */
+  --text-primary:     #1e3a2f;   /* deep green */
+  --text-light:       #f7f5f0;   /* cream text on dark backgrounds */
+  --text-muted:       #6b8f71;   /* muted sage for captions */
+  --accent:           #4aab6d;   /* fresh green CTA accent */
+  --accent-hover:     #37905a;   /* darker green on hover */
+  --border:           #d8e8da;   /* soft sage border */
+  --tag-bg:           #e2efe4;   /* pill/tag background */
+  
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  
+  --shadow-sm: 0 2px 8px rgba(30, 58, 47, 0.04);
+  --shadow-md: 0 10px 30px rgba(30, 58, 47, 0.05);
+  --shadow-lg: 0 20px 50px rgba(30, 58, 47, 0.08);
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --border-radius-pill: 9999px;
+  --border-radius-card: 16px;
+  
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Base resets inside the scoped design wrapper */
+.design-twoleaves-sage * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings & em typography mix */
+.design-twoleaves-sage h1, 
+.design-twoleaves-sage h2, 
+.design-twoleaves-sage h3, 
+.design-twoleaves-sage h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.design-twoleaves-sage em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+}
+
+/* Buttons */
+.design-twoleaves-sage .btn-twoleaves {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 2.25rem;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.design-twoleaves-sage .btn-twoleaves-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.design-twoleaves-sage .btn-twoleaves-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.design-twoleaves-sage .btn-twoleaves-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.design-twoleaves-sage .btn-twoleaves-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.design-twoleaves-sage .btn-twoleaves-white {
+  background-color: #ffffff;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.design-twoleaves-sage .btn-twoleaves-white:hover {
+  background-color: var(--bg-primary);
+}
+
+.design-twoleaves-sage .btn-twoleaves-ghost-light {
+  background-color: transparent;
+  color: var(--text-light);
+  border-color: rgba(247, 245, 240, 0.4);
+}
+
+.design-twoleaves-sage .btn-twoleaves-ghost-light:hover {
+  border-color: var(--text-light);
+  background-color: rgba(247, 245, 240, 0.05);
+}
+
+/* Container */
+.design-twoleaves-sage .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 1. Utility Bar */
+.twoleaves-utility-bar {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(247, 245, 240, 0.08);
+}
+
+.twoleaves-utility-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.twoleaves-utility-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.twoleaves-utility-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.twoleaves-phone-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-phone-link:hover {
+  color: var(--accent);
+}
+
+/* 2. Sticky Navbar */
+.twoleaves-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-navbar.transparent {
+  background-color: transparent;
+  padding: 1.5rem 0;
+}
+
+.twoleaves-navbar.solid {
+  background-color: var(--bg-primary);
+  padding: 0.9rem 0;
+  box-shadow: 0 4px 20px rgba(30, 58, 47, 0.04);
+  border-bottom: 1px solid var(--border);
+}
+
+.twoleaves-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.twoleaves-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.twoleaves-logo span {
+  font-weight: 400;
+}
+
+.twoleaves-nav-links {
+  display: none;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-nav-links {
+    display: flex;
+  }
+}
+
+.twoleaves-nav-item {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.twoleaves-nav-item:hover {
+  color: var(--accent);
+}
+
+/* Navbar dropdown menu */
+.twoleaves-dropdown-wrapper {
+  position: relative;
+}
+
+.twoleaves-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 0;
+  min-width: 180px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-dropdown-wrapper:hover .twoleaves-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.twoleaves-dropdown-item {
+  display: block;
+  padding: 0.5rem 1.25rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 400;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.twoleaves-dropdown-item:hover {
+  background-color: var(--bg-sage);
+  color: var(--accent-hover);
+}
+
+.twoleaves-nav-cta {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-nav-cta {
+    display: block;
+  }
+}
+
+.twoleaves-hamburger {
+  display: flex;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-hamburger {
+    display: none;
+  }
+}
+
+/* Mobile drawer navigation */
+.twoleaves-mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-primary);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem 2rem;
+  overflow-y: auto;
+}
+
+.twoleaves-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.twoleaves-mobile-item {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.twoleaves-mobile-item em {
+  font-size: 2.25rem;
+}
+
+.twoleaves-mobile-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+/* 3. Hero Section */
+.twoleaves-hero {
+  position: relative;
+  height: calc(100vh - 100px);
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  text-align: center;
+  overflow: hidden;
+}
+
+.twoleaves-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* for parallax overflow */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.twoleaves-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 58, 47, 0.55);
+  z-index: 2;
+}
+
+.twoleaves-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.twoleaves-hero-heading {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-hero-heading {
+    font-size: 5rem;
+  }
+}
+
+.twoleaves-hero-heading em {
+  color: var(--accent);
+}
+
+.twoleaves-hero-subtext {
+  font-size: 1.05rem;
+  font-weight: 300;
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  color: rgba(247, 245, 240, 0.9);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-hero-subtext {
+    font-size: 1.2rem;
+  }
+}
+
+.twoleaves-hero-ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.twoleaves-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+}
+
+/* 4. Italic Subheading Band */
+.twoleaves-subheading-band {
+  background-color: var(--bg-primary);
+  padding: 4.5rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.twoleaves-band-text {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  max-width: 750px;
+  margin: 0 auto;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-band-text {
+    font-size: 2.6rem;
+  }
+}
+
+/* 5. Services Section - "Best Sellers" Style */
+.twoleaves-services {
+  background-color: #ffffff;
+  padding: 6.5rem 0;
+}
+
+.twoleaves-section-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.twoleaves-section-title {
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-section-title {
+    font-size: 3.25rem;
+  }
+}
+
+/* Custom Horizontal Scroll Grid */
+.twoleaves-horizontal-grid {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide Scrollbar but allow scrolling */
+.twoleaves-horizontal-grid::-webkit-scrollbar {
+  display: none;
+}
+.twoleaves-horizontal-grid {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.twoleaves-service-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-card);
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  transition: var(--transition-smooth);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-service-card {
+    flex: 0 0 310px;
+  }
+}
+
+.twoleaves-service-card:hover {
+  background-color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.twoleaves-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1.75rem;
+  border: 1px solid var(--border);
+}
+
+.twoleaves-service-card:hover .twoleaves-card-icon {
+  background-color: var(--bg-sage);
+}
+
+.twoleaves-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.twoleaves-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.twoleaves-card-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-card-link:hover {
+  color: var(--accent-hover);
+}
+
+.twoleaves-services-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.twoleaves-footer-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px dashed var(--text-primary);
+  padding-bottom: 3px;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-footer-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Highlight style for filtered/highlighted service cards */
+.twoleaves-service-card.highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+  transform: translateY(-4px);
+}
+
+.twoleaves-service-card.dimmed {
+  opacity: 0.45;
+}
+
+/* 6. "Discover" Filter Section */
+.twoleaves-discover {
+  background-color: var(--bg-sage);
+  padding: 6.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.twoleaves-discover-title {
+  font-size: 2.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-discover-title {
+    font-size: 3rem;
+  }
+}
+
+.twoleaves-pills-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.twoleaves-pills-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.twoleaves-pill {
+  flex-shrink: 0;
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-pill);
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-pill:hover {
+  background-color: var(--tag-bg);
+}
+
+.twoleaves-pill.active {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+/* 7. Origin / Mission Section - "Born in Colorado" Style */
+.twoleaves-origin {
+  position: relative;
+  padding: 9rem 0;
+  color: var(--text-light);
+  overflow: hidden;
+}
+
+.twoleaves-origin-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%; /* extra height for parallax */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.twoleaves-origin-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 58, 47, 0.65);
+  z-index: 2;
+}
+
+.twoleaves-origin .container {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  text-align: center;
+}
+
+.twoleaves-origin-title {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  color: var(--text-light);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-origin-title {
+    font-size: 5rem;
+  }
+}
+
+.twoleaves-origin-desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 3.5rem;
+  color: rgba(247, 245, 240, 0.9);
+}
+
+.twoleaves-values-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .twoleaves-values-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.twoleaves-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.twoleaves-value-icon {
+  font-size: 2.25rem;
+}
+
+.twoleaves-value-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 8. Stats Counter Band */
+.twoleaves-stats {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: 5rem 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(247, 245, 240, 0.08);
+}
+
+.twoleaves-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.twoleaves-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.twoleaves-stat-number {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.twoleaves-stat-label {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(247, 245, 240, 0.75);
+}
+
+/* 9. Testimonials Section - "Loved by Tea People" Style */
+.twoleaves-testimonials {
+  background-color: var(--bg-primary);
+  padding: 6.5rem 0;
+  overflow: hidden;
+}
+
+.twoleaves-testimonials-title {
+  font-size: 2.25rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-testimonials-title {
+    font-size: 3.25rem;
+  }
+}
+
+.twoleaves-carousel-viewport {
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  cursor: grab;
+}
+
+.twoleaves-carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.twoleaves-testimonial-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-testimonial-card {
+    padding: 4rem 3.5rem;
+  }
+}
+
+.twoleaves-testimonial-stars {
+  font-size: 1.25rem;
+  color: #ffb03a;
+  margin-bottom: 1.5rem;
+}
+
+.twoleaves-testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-testimonial-quote {
+    font-size: 1.6rem;
+  }
+}
+
+.twoleaves-testimonial-meta {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.twoleaves-testimonial-tag {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--accent-hover);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--border-radius-pill);
+  margin-top: 1rem;
+}
+
+.twoleaves-carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.twoleaves-carousel-btn {
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-carousel-btn:hover {
+  background-color: var(--bg-sage);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.twoleaves-carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.twoleaves-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--border);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-carousel-dot.active {
+  background-color: var(--accent);
+  transform: scale(1.25);
+}
+
+/* 10. Partners Band */
+.twoleaves-partners {
+  background-color: #ffffff;
+  padding: 6.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.twoleaves-partners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-partners-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.twoleaves-partners-content {
+  text-align: left;
+}
+
+.twoleaves-partners-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-partners-title {
+    font-size: 3rem;
+  }
+}
+
+.twoleaves-partners-text {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.twoleaves-partners-action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-partners-action {
+    justify-content: flex-end;
+  }
+}
+
+/* 11. Care Programs Section - "Barista Blends" Style */
+.twoleaves-programs {
+  background-color: var(--bg-sage);
+  padding: 6.5rem 0;
+}
+
+.twoleaves-programs-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.twoleaves-programs-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.twoleaves-program-card {
+  flex: 0 0 270px;
+  scroll-snap-align: start;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-card);
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-program-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.twoleaves-program-badge {
+  align-self: flex-start;
+  background-color: var(--bg-sage);
+  color: var(--accent-hover);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--border-radius-pill);
+  margin-bottom: 1.5rem;
+}
+
+.twoleaves-program-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.twoleaves-program-tagline {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.twoleaves-program-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-program-link:hover {
+  color: var(--accent);
+}
+
+/* 12. Journal Section */
+.twoleaves-journal {
+  background-color: #ffffff;
+  padding: 6.5rem 0;
+}
+
+.twoleaves-journal-grid {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.twoleaves-journal-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.twoleaves-journal-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-journal-card:hover {
+  background-color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.twoleaves-journal-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.twoleaves-journal-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.twoleaves-journal-title {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.twoleaves-journal-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-journal-link:hover {
+  color: var(--accent-hover);
+}
+
+/* 13. Final CTA Section */
+.twoleaves-final-cta {
+  background-color: var(--bg-sage);
+  padding: 8rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.twoleaves-final-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-final-title {
+    font-size: 5rem;
+  }
+}
+
+.twoleaves-final-sub {
+  font-size: 1.15rem;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  color: var(--text-muted);
+}
+
+.twoleaves-final-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* 14. Footer */
+.twoleaves-footer {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: 7rem 0 3rem;
+}
+
+.twoleaves-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .twoleaves-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .twoleaves-footer-grid {
+    grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr;
+  }
+}
+
+.twoleaves-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.twoleaves-footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-light);
+}
+
+.twoleaves-footer-tagline {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(247, 245, 240, 0.7);
+}
+
+.twoleaves-footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.twoleaves-social-btn {
+  background-color: rgba(247, 245, 240, 0.05);
+  color: var(--text-light);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-social-btn:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.twoleaves-footer-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+  color: rgba(247, 245, 240, 0.4);
+}
+
+.twoleaves-footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.twoleaves-footer-link-item {
+  color: rgba(247, 245, 240, 0.75);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.twoleaves-footer-link-item:hover {
+  color: var(--accent);
+}
+
+.twoleaves-footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.twoleaves-footer-newsletter-text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(247, 245, 240, 0.7);
+}
+
+.twoleaves-newsletter-form {
+  display: flex;
+  border-bottom: 1.5px solid rgba(247, 245, 240, 0.2);
+  padding-bottom: 0.5rem;
+  align-items: center;
+}
+
+.twoleaves-newsletter-input {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  flex-grow: 1;
+  outline: none;
+  width: 140px; /* starting width */
+  transition: width 0.3s ease;
+}
+
+.twoleaves-newsletter-input::placeholder {
+  color: rgba(247, 245, 240, 0.4);
+}
+
+.twoleaves-newsletter-submit {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-newsletter-submit:hover {
+  color: var(--accent);
+}
+
+.twoleaves-footer-contacts {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(247, 245, 240, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.twoleaves-footer-bottom {
+  border-top: 1px solid rgba(247, 245, 240, 0.08);
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(247, 245, 240, 0.4);
+}
+
+@media (min-width: 768px) {
+  .twoleaves-footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.twoleaves-footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.twoleaves-footer-bottom-link {
+  color: rgba(247, 245, 240, 0.4);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-footer-bottom-link:hover {
+  color: var(--accent);
+}
+
+/* Floating back-to-hub control bar for design 2 */
+.twoleaves-floating-hub {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+}
+
+.twoleaves-floating-hub-btn {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border: 1px solid rgba(247, 245, 240, 0.1);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius-pill);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(30, 58, 47, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition-smooth);
+}
+
+.twoleaves-floating-hub-btn:hover {
+  background-color: #264a3c;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(30, 58, 47, 0.35);
+  border-color: var(--accent);
+}
+
+/* Infinite bounce for hero scroll indicator */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.twoleaves-bounce {
+  animation: bounce 2s infinite ease-in-out;
+}

@@ -25,9 +25,12 @@ import {
   Menu, 
   X, 
   Check, 
-  Send 
+  Send,
+  ArrowLeft
 } from 'lucide-react';
 import './App.css';
+import DesignHub from './components/DesignHub';
+import DesignTwo from './components/DesignTwo';
 
 // Animated Counter Component for Stats Section
 function Counter({ value, suffix = "" }) {
@@ -58,6 +61,7 @@ function Counter({ value, suffix = "" }) {
 }
 
 function App() {
+  const [activeDesign, setActiveDesign] = useState('hub');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('ndis');
   const [selectedLocation, setSelectedLocation] = useState('brisbane');
@@ -202,6 +206,14 @@ function App() {
       coords: { x: "60%", y: "80%" }
     }
   };
+
+  if (activeDesign === 'hub') {
+    return <DesignHub onSelect={setActiveDesign} />;
+  }
+
+  if (activeDesign === 'design2') {
+    return <DesignTwo onSelect={setActiveDesign} />;
+  }
 
   return (
     <>
@@ -1044,6 +1056,26 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Design Hub Trigger */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 0.8, type: "spring", stiffness: 260, damping: 20 }}
+        className="floating-hub-widget"
+      >
+        <button 
+          onClick={() => {
+            window.scrollTo({ top: 0 });
+            setActiveDesign('hub');
+          }}
+          className="floating-hub-btn"
+          aria-label="Back to Designs Showcase"
+        >
+          <ArrowLeft size={16} />
+          <span>Designs Showcase</span>
+        </button>
+      </motion.div>
     </>
   );
 }
